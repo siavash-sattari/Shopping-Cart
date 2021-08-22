@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+
+body {
+  color: #222;
+  font-family: "Lato", sans-serif;
+  background-color: #f6f6f6;
+}
+
+/* --------------- Navbar ---------------- */
+
+.nav {
+  background: #ede9fe;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 120px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  color: #6d28d9;
+}
+
+.nav-title {
+  color: #222;
+  letter-spacing: 3px;
+}
+
+.cart-btn {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-items {
+  background: #db2777;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+}
