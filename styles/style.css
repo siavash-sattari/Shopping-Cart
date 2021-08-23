@@ -147,14 +147,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30em;
+  width: 33em;
   padding: 1em;
   z-index: 10;
-  position: fixed;
-  top: 50%;
+  margin: 0 auto;
+  position: absolute;
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
+  transform: translateX(-50%);
+  display: none;
 }
 
 .cart-title {
@@ -220,7 +221,71 @@ body {
 
 @media (max-width: 600px) {
   .cart {
-    width: 97vw;
+    width: 98vw;
     padding: 1em 0;
+  }
+}
+
+/* =============================================== */
+
+/* Baraye Hefz Zaher Behtare Product Va Cart ! Chon Onvane (Tole) Hameye Product Ha Yeksan Nist */
+
+.product-desc {
+  width: 45%;
+}
+
+.cart-item-desc {
+  width: 28%;
+}
+
+/* Baraye Zamani Ke Product Add Mishe */
+
+.product-added {
+  background: #ffe96c;
+  color: rgb(46, 45, 45);
+  cursor: default;
+}
+
+@media (max-width: 576px) {
+  .product-img {
+    width: 280px;
+  }
+
+  .nav {
+    justify-content: space-around !important;
+    padding: 0 !important;
+  }
+
+  .products {
+    padding: 2em 0;
+  }
+
+  .products-header h2 {
+    font-size: 1.3em;
+    margin-bottom: 2em;
+  }
+
+  .product {
+    margin-bottom: 50px;
+  }
+
+  .product:nth-child(8) .product-img {
+    height: 170px !important;
+  }
+
+  .product-title {
+    width: 150px;
+    font-size: 1rem !important;
+  }
+
+  .cart-item-desc h4 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 992px){
+  .nav {
+    justify-content: space-between ;
+    padding: 0 70px;
   }
 }
