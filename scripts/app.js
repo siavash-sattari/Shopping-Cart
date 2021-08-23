@@ -42,9 +42,23 @@ class UI {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Get All Products
-  const products = new Products();
-  const ui = new UI();
-  const productsData = products.getProducts();
-  ui.displayProducts(productsData);
-});
+    // Get All Products
+    const products = new Products();
+    const ui = new UI();
+    const productsData = products.getProducts();
+    ui.displayProducts(productsData);
+  });
+
+cartBtn.addEventListener("click", showModalFunction);
+closeModal.addEventListener("click", closeModalFunction);
+backDrop.addEventListener("click", closeModalFunction);
+
+function showModalFunction() {
+  backDrop.style.display = "block";
+  cartModal.style.opacity = "1";
+}
+
+function closeModalFunction() {
+  backDrop.style.display = "none";
+  cartModal.style.opacity = "0";
+}
