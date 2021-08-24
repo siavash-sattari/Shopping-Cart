@@ -151,11 +151,16 @@ body {
   padding: 1em;
   z-index: 10;
   margin: 0 auto;
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%);
   display: none;
+  /* position: absolute; */
+  /* top: 15%; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  /* ======================================= */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .cart-title {
@@ -163,7 +168,12 @@ body {
 }
 
 .cart-content {
-  padding: 2em;
+  /* padding: 2em; */
+  padding: 0 2em;
+  /* ======================================= */
+  max-height: 350px;
+  overflow-y: auto;
+  margin: 2em 0;
 }
 
 .cart-item {
@@ -197,6 +207,7 @@ body {
 .cart-content .remove-item {
   color: #db2777;
   cursor: pointer;
+  /* margin-right: 10px; */
 }
 
 .cart-footer {
@@ -221,8 +232,20 @@ body {
 
 @media (max-width: 600px) {
   .cart {
-    width: 98vw;
+    width: 92vw;
     padding: 1em 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .btn {
+    padding: 0.5em 0.4em;
+  }
+
+  .cart-footer span {
+    margin-right: 0.6em;
+    font-size: 14px;
+    font-weight: bold;
   }
 }
 
@@ -240,10 +263,17 @@ body {
 
 /* Baraye Zamani Ke Product Add Mishe */
 
-.product-added {
+.in-cart {
   background: #ffe96c;
   color: rgb(46, 45, 45);
-  cursor: default;
+  /* cursor: default; */
+}
+
+.remove-item-footer{
+  color: #db2727;
+  cursor: pointer;
+  margin-left: 10px;
+  /* display: none !important; */
 }
 
 @media (max-width: 576px) {
@@ -278,14 +308,26 @@ body {
     font-size: 1rem !important;
   }
 
+  .cart-content {
+    max-height: 250px;
+  }
+
   .cart-item-desc h4 {
     font-size: 12px;
   }
 }
 
-@media (max-width: 992px){
+@media (max-width: 992px) {
   .nav {
-    justify-content: space-between ;
+    justify-content: space-between;
     padding: 0 70px;
   }
+}
+
+
+.remove-item-footer{
+  color: #db2727;
+  cursor: pointer;
+  margin-left: 10px;
+  display: none !important;
 }

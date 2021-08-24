@@ -33,7 +33,7 @@ class UI {
       <img src=${product.imageUrl} class="product-img" />
       <div class="product-footer">
         <div class="product-desc">
-          <p class="product-price">${product.price}</p>
+          <p class="product-price">$ ${product.price}</p>
           <p class="product-title">${product.title}</p>
         </div>
         <button class="btn add-to-cart" data-id=${product.id}>add to cart</button>
@@ -57,23 +57,23 @@ class UI {
       if (isInCart) {
         btn.innerText = "In Cart";
         btn.disabled = true;
-        btn.classList.add("product-added");
+        btn.classList.add("in-cart");
       }
       btn.addEventListener("click", (e) => {
-        e.target.innerHTML = "In Cart";
-        // console.log(e.target);
-        e.target.classList.add("product-added");
-        e.target.disabled = true;
-        // 1. Get Product From Products
-        const addedProduct = {...Storage.getProduct(id), quantity: 1};
-        // 2. Add Product To Cart
-        cart = [...cart, addedProduct];
-        // 3. Save Cart In Local Sotrage
-        Storage.saveCart(cart);
-        // 4. Set Cart Values
-        this.setCartValue(cart);
-        // 5. Dispaly Cart Item
-        this.addCartItem(addedProduct);
+          e.target.innerHTML = "In Cart";
+          // console.log(e.target);
+          e.target.classList.add("in-cart");
+          e.target.disabled = true;
+          // 1. Get Product From Products
+          const addedProduct = {...Storage.getProduct(id), quantity: 1};
+          // 2. Add Product To Cart
+          cart = [...cart, addedProduct];
+          // 3. Save Cart In Local Sotrage
+          Storage.saveCart(cart);
+          // 4. Set Cart Values
+          this.setCartValue(cart);
+          // 5. Dispaly Cart Item
+          this.addCartItem(addedProduct);
       });
     });
   }
@@ -94,7 +94,7 @@ class UI {
     div.innerHTML = `<img class="cart-item-img" src=${product.imageUrl} />
     <div class="cart-item-desc">
       <h4>${product.title}</h4>
-      <h5>${product.price}</h5>
+      <h5>$ ${product.price}</h5>
     </div>
     <div class="cart-item-controller">
       <i class="fas fa-chevron-up" data-id=${product.id}></i>
@@ -129,7 +129,6 @@ class UI {
       if (e.target.classList.contains("remove-item")) {
         const removeItem = e.target;
         const id = removeItem.dataset.id;
-        console.log(id);
         // Remove From DOM :
         // console.log(removeItem.parentElement);
         cartContent.removeChild(removeItem.parentElement);
@@ -186,7 +185,7 @@ class UI {
     const button = this.getSingleButton(id);
     button.disabled = false;
     button.innerHTML = `add to cart`;
-    button.classList.remove("product-added");
+    button.classList.remove("in-cart");
   }
 
   getSingleButton(id) {
@@ -234,9 +233,11 @@ backDrop.addEventListener("click", closeModalFunction);
 function showModalFunction() {
   backDrop.style.display = "block";
   cartModal.style.display = "block";
+  document.querySelector("body").style.overflowY = "hidden";
 }
 
 function closeModalFunction() {
   backDrop.style.display = "none";
   cartModal.style.display = "none";
+  document.querySelector("body").style.overflowY = "visible";
 }
